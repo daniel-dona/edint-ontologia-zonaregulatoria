@@ -1,0 +1,323 @@
+@prefix : <http://vocab.linkeddata.es/datosabiertos/def/common/zone#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ns: <http://creativecommons.org/ns#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix esadm: <http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix edintzone: <http://vocab.linkeddata.es/datosabiertos/def/common/zone#> .
+@base <http://vocab.linkeddata.es/datosabiertos/def/common/zone#> .
+
+<http://vocab.linkeddata.es/datosabiertos/def/common/zone#> rdf:type owl:Ontology ;
+    owl:imports <http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio_v0.5> ,
+                <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero_v0.3> ;
+    dc:abstract "Esta ontología tiene como propósito definir, categorizar y relacionar las Zonas Regulatorias en el contexto de la movilidad inteligente y la gestión urbana (Smart Cities). Se ha diseñado como una extensión modular de la ontología del Sector Público de España (esadm)."@es ,
+                "This ontology aims to define, categorize, and relate Regulatory Zones in the context of smart mobility and urban management (Smart Cities). It is designed as a modular extension of the Spanish Public Sector ontology (esadm)."@en ;
+    dc:creator "OEG-UPM" ;
+    dc:title "Ontología base de Zonas"@es ,
+             "Base Zoning Ontology"@en ;
+    terms:issued "2026-01-27"^^xsd:date ;
+    vann:preferredNamespacePrefix "edintzone" ;
+    vann:preferredNamespaceUri "http://vocab.linkeddata.es/datosabiertos/def/common/zone#" ;
+    rdfs:comment "Actualmente, existen vocabularios para divisiones administrativas (esadm) y geometrías (GeoSPARQL), pero existía un vacío semántico para representar entidades funcionales que se superponen a la trama urbana (ZBE, Carga y Descarga, etc...) sin responder a límites administrativos fijos. Esta ontología cubre dicho hueco."@es ,
+                 "Currently, vocabularies exist for administrative divisions (esadm) and geometries (GeoSPARQL), but there was a semantic gap for representing functional entities that overlay the urban grid (LEZ, Loading/Unloading, etc.) without adhering to fixed administrative boundaries. This ontology fills that gap."@en ;
+    rdfs:label "Ontología base de Zonas para el Caso de Uso de Movilidad Inteligente."@es ,
+               "Base Zoning Ontology for Smart Mobility Use Case."@en ;
+    owl:versionInfo "0.1.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/abstract
+dc:abstract rdf:type owl:AnnotationProperty .
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.opengis.net/ont/geosparql#wktLiteral
+geo:wktLiteral rdf:type rdfs:Datatype .
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#composedOf
+edintzone:composedOf rdf:type owl:ObjectProperty ;
+    rdfs:domain edintzone:RegulatedZone ;
+    rdfs:range <http://dbpedia.org/ontology/GovernmentalAdministrativeRegion> ,
+               <http://www.geonames.org/ontology#Feature> ;
+    rdfs:comment "Relación que permite definir una Zona Regulatoria mediante uno o más entidades administrativas (Via, Distrito, Municipio...)."@es ,
+                 "Relationship that allows defining a Regulated Zone via one or more administrative entities (Street, District, Municipality...)."@en ;
+    rdfs:label "compuesta por"@es ,
+               "composed of"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#managedBy
+edintzone:managedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain edintzone:RegulatedZone ;
+    rdfs:range org:Organization ;
+    rdfs:comment "Organización (pública o privada) encargada de la gestión y operación de la zona."@es ,
+                 "Organization (public or private) responsible for the management and operation of the zone."@en ;
+    rdfs:label "entidad gestora"@es ,
+               "managed by"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#hasRegulatedZone
+edintzone:hasRegulatedZone rdf:type owl:ObjectProperty ;
+    owl:inverseOf edintzone:locatedIn ;
+    rdfs:domain esadm:Municipio ;
+    rdfs:range edintzone:RegulatedZone ;
+    rdfs:comment "Propiedad inversa de 'ubicado'. Vincula un municipio con las zonas regulatorias que contiene."@es ,
+                 "Inverse property of 'locatedIn'. Links a municipality with the regulated zones it contains."@en ;
+    rdfs:label "tiene zona regulatoria"@es ,
+               "has regulated zone"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#locatedIn
+edintzone:locatedIn rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf geo:sfWithin ;
+    rdfs:domain edintzone:RegulatedZone ;
+    rdfs:range esadm:Municipio ;
+    rdfs:comment "Relaciona una zona regulatoria con el municipio administrativo al que pertenece."@es ,
+                 "Relates a regulated zone to the administrative municipality it belongs to."@en ;
+    rdfs:label "ubicado en municipio"@es ,
+               "located in municipality"@en .
+
+
+###  http://www.opengis.net/ont/geosparql#hasGeometry
+geo:hasGeometry rdf:type owl:ObjectProperty ;
+    rdfs:label "tiene geometría"@es ,
+               "has geometry"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#startDate
+edintzone:startDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain edintzone:RegulatedZone ;
+    rdfs:range xsd:date ;
+    rdfs:comment "Fecha a partir de la cual la regulación de la zona comienza a ser efectiva."@es ,
+                 "Date from which the zone regulation becomes effective."@en ;
+    rdfs:label "fecha de entrada en vigor"@es ,
+               "entry into force date"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#endDate
+edintzone:endDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain edintzone:RegulatedZone ;
+    rdfs:range xsd:date ;
+    rdfs:comment "Fecha en la que la regulación de la zona deja de ser efectiva (derogación o fin de periodo)."@es ,
+                 "Date when the zone regulation ceases to be effective."@en ;
+    rdfs:label "fecha de fin de vigor"@es ,
+               "end date"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#scheduleDescription
+edintzone:scheduleDescription rdf:type owl:DatatypeProperty ;
+    rdfs:domain edintzone:RegulatedZone ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Descripción textual del horario de funcionamiento de la zona (ej. \"Lunes a Viernes de 07:00 a 20:00\")."@es ,
+                 "Textual description of the zone's operating schedule (e.g., \"Monday to Friday from 07:00 to 20:00\")."@en ;
+    rdfs:label "horario descriptivo"@es ,
+               "schedule description"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#legalReference
+edintzone:legalReference rdf:type owl:DatatypeProperty ;
+    rdfs:domain edintzone:RegulatedZone ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "Enlace al documento oficial (Boletín, Ordenanza) que establece la creación de la zona."@es ,
+                 "Link to the official document (Bulletin, Ordinance) establishing the zone."@en ;
+    rdfs:label "referencia legal"@es ,
+               "legal reference"@en .
+
+
+###  http://www.opengis.net/ont/geosparql#asWKT
+geo:asWKT rdf:type owl:DatatypeProperty ;
+    rdfs:domain sf:Geometry ;
+    rdfs:range geo:wktLiteral ;
+    rdfs:comment "Representación de la geometría en formato Well-Known Text."@es ,
+                 "Geometry representation in Well-Known Text format."@en ;
+    rdfs:label "como WKT"@es ,
+               "as WKT"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#HistoricalCenter
+edintzone:HistoricalCenter rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:RegulatedZone ;
+    rdfs:comment "Área urbana de especial protección patrimonial donde se aplican restricciones estrictas de acceso, circulación y estacionamiento para preservar la trama histórica."@es ,
+                 "Urban area with special heritage protection where strict restrictions on access, circulation, and parking apply to preserve the historical fabric."@en ;
+    rdfs:label "Casco Histórico"@es ,
+               "Historical Center"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#ScienceTechnologyPark
+edintzone:ScienceTechnologyPark rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:EconomicInterestZone ;
+    rdfs:comment "Espacio físico para el fomento de la I+D+i y la transferencia de conocimiento."@es ,
+                 "Physical space for promoting R&D&I and knowledge transfer."@en ;
+    rdfs:label "Parque Científico y Tecnológico"@es ,
+               "Science and Technology Park"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#RegulatorySandbox
+edintzone:RegulatorySandbox rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:EconomicInterestZone ;
+    rdfs:comment "Espacio controlado de pruebas autorizado para la realización de ensayos de investigación con vehículos automatizados o nuevas formas de movilidad."@es ,
+                 "Controlled testing environment authorized for research trials with automated vehicles or new forms of mobility."@en ;
+    rdfs:label "Sandbox Regulatorio"@es ,
+               "Regulatory Sandbox"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#LogisticsActivityZone
+edintzone:LogisticsActivityZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:EconomicInterestZone ;
+    rdfs:comment "Infraestructura especializada en actividades de transporte y logística. Definida legalmente como 'Centro de Transporte y Logística'."@es ,
+                 "Infrastructure specialized in transport and logistics activities. Legally defined as 'Transport and Logistics Center'."@en ;
+    rdfs:label "Zona de Actividad Logística"@es ,
+               "Logistics Activity Zone"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#LowEmissionZone
+edintzone:LowEmissionZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:RegulatedZone ;
+    rdfs:comment "Zona definida por la administración donde se aplican restricciones de acceso, circulación y estacionamiento de vehículos con el objetivo de mejorar la calidad del aire."@es ,
+                 "Zone defined by the administration where restrictions on vehicle access, circulation, and parking apply to improve air quality."@en ;
+    rdfs:label "Zona de Bajas Emisiones"@es ,
+               "Low Emission Zone"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#LoadingUnloadingZone
+edintzone:LoadingUnloadingZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:RegulatedParkingZone ;
+    rdfs:comment "Zona reservada exclusivamente para la parada técnica de vehículos profesionales dedicados a la Distribución Urbana de Mercancías (DUM)."@es ,
+                 "Zone reserved exclusively for the technical stop of professional vehicles dedicated to Urban Goods Distribution."@en ;
+    rdfs:label "Zona de Carga y Descarga"@es ,
+               "Loading and Unloading Zone"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#ParkAndRideZone
+edintzone:ParkAndRideZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:RegulatedParkingZone ;
+    rdfs:comment "Zona de estacionamiento estratégico situado en la periferia y conectado con redes de transporte público."@es ,
+                 "Strategic parking zone located on the periphery and connected to public transport networks."@en ;
+    rdfs:label "Zona de Estacionamiento Disuasorio"@es ,
+               "Park and Ride Zone"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#RegulatedParkingZone
+edintzone:RegulatedParkingZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:RegulatedZone ;
+    rdfs:comment "Zona de la vía pública donde el estacionamiento está sujeto a regulación horaria, pago de tasas u otras restricciones."@es ,
+                 "Public road zone where parking is subject to time regulation, fee payment, or other restrictions."@en ;
+    rdfs:label "Zona de Estacionamiento Regulado"@es ,
+               "Regulated Parking Zone"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#ResidentialParkingZone
+edintzone:ResidentialParkingZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:RegulatedParkingZone ;
+    rdfs:comment "Zona destinada prioritaria o exclusivamente al estacionamiento de vehículos de residentes empadronados."@es ,
+                 "Zone intended primarily or exclusively for parking vehicles of registered residents."@en ;
+    rdfs:label "Zona de Estacionamiento Residencial"@es ,
+               "Residential Parking Zone"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#ShortTermParkingZone
+edintzone:ShortTermParkingZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:RegulatedParkingZone ;
+    rdfs:comment "Zona destinada principalmente a usuarios visitantes con limitación temporal estricta y tarificación para favorecer la alta rotación."@es ,
+                 "Zone intended primarily for visitors with strict time limits and fees to encourage high vehicle turnover."@en ;
+    rdfs:label "Zona de Estacionamiento de Rotación"@es ,
+               "Short-term Parking Zone"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#FreeTradeZone
+edintzone:FreeTradeZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:EconomicInterestZone ;
+    rdfs:comment "Área del territorio aduanero de la Unión donde las mercancías no comunitarias se consideran no situadas en territorio aduanero."@es ,
+                 "Area of the Union customs territory where non-Community goods are considered not situated within customs territory."@en ;
+    rdfs:label "Zona Franca"@es ,
+               "Free Trade Zone"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#HighTourismInfluxZone
+edintzone:HighTourismInfluxZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:EconomicInterestZone ;
+    rdfs:comment "Zonas con gran afluencia turística donde se aplica plena libertad de apertura comercial en domingos y festivos."@es ,
+                 "Zones with high tourist influx where full freedom of commercial opening on Sundays and holidays applies."@en ;
+    rdfs:label "Zona de Gran Afluencia Turística"@es ,
+               "High Tourism Influx Zone"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#EconomicInterestZone
+edintzone:EconomicInterestZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:RegulatedZone ;
+    rdfs:comment "Área delimitada por normativas municipales para fomentar actividades comerciales o turísticas."@es ,
+                 "Area delimited by municipal regulations to promote commercial or tourist activities."@en ;
+    rdfs:label "Zona de Interés Económico"@es ,
+               "Economic Interest Zone"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#RegulatedZone
+edintzone:RegulatedZone rdf:type owl:Class ;
+    rdfs:subClassOf geo:Feature ,
+                    [ rdf:type owl:Restriction ;
+                        owl:onProperty geo:hasGeometry ;
+                        owl:someValuesFrom sf:Geometry
+                    ] ,
+                    [ rdf:type owl:Restriction ;
+                        owl:onProperty edintzone:locatedIn ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onClass esadm:Municipio
+                    ] ;
+    rdfs:comment "Area a la que se aplica una regulacion o normativa particular"@es ,
+                 "Area to which a particular regulation or policy applies"@en ;
+    rdfs:label "Zona regulatoria"@es ,
+               "Regulated Zone"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#StreetVendingZone
+edintzone:StreetVendingZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:EconomicInterestZone ;
+    rdfs:comment "Zona acotada para la modalidad de venta realizada fuera de establecimiento comercial permanente (mercadillos)."@es ,
+                 "Zone demarcated for sales conducted outside of permanent commercial establishments (street markets)."@en ;
+    rdfs:label "Zona de Venta Ambulante"@es ,
+               "Street Vending Zone"@en .
+
+
+###  http://www.opengis.net/ont/geosparql#Feature
+geo:Feature rdf:type owl:Class .
+
+###  http://www.opengis.net/ont/sf#Geometry
+sf:Geometry rdf:type owl:Class .
+
+###  http://www.w3.org/ns/org#Organization
+org:Organization rdf:type owl:Class .
