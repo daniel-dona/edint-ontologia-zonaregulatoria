@@ -178,6 +178,15 @@ edintzone:HistoricalCenter rdf:type owl:Class ;
                "Historical Center"@en .
 
 
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#PedestrianZone
+edintzone:PedestrianZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:RegulatedZone ;
+    rdfs:comment "Vía o área reservada total o parcialmente para la circulación de peatones, con regulaciones estrictas de velocidad para los vehículos permitidos y prohibición general de estacionamiento."@es ,
+                 "Road or area reserved entirely or partially for pedestrian traffic, with strict speed regulations for permitted vehicles and a general prohibition on parking."@en ;
+    rdfs:label "Zona Peatonal"@es ,
+               "Pedestrian Zone"@en .
+
+
 ###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#ScienceTechnologyPark
 edintzone:ScienceTechnologyPark rdf:type owl:Class ;
     rdfs:subClassOf edintzone:EconomicInterestZone ;
@@ -212,6 +221,15 @@ edintzone:LowEmissionZone rdf:type owl:Class ;
                  "Zone defined by the administration where restrictions on vehicle access, circulation, and parking apply to improve air quality."@en ;
     rdfs:label "Zona de Bajas Emisiones"@es ,
                "Low Emission Zone"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#RestrictedAccessZone
+edintzone:RestrictedAccessZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:RegulatedZone ;
+    rdfs:comment "Área urbana (como las Áreas de Prioridad Residencial - APR) donde el acceso de vehículos está limitado a residentes, transporte público o vehículos autorizados por motivos de fluidez, seguridad o capacidad viaria."@es ,
+                 "Urban area (such as Residential Priority Areas) where vehicle access is limited to residents, public transport, or authorized vehicles for reasons of traffic flow, safety, or road capacity."@en ;
+    rdfs:label "Zona de Acceso Restringido"@es ,
+               "Restricted Access Zone"@en .
 
 
 ###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#LoadingUnloadingZone
@@ -259,6 +277,15 @@ edintzone:ShortTermParkingZone rdf:type owl:Class ;
                "Short-term Parking Zone"@en .
 
 
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#ReducedMobilityParkingZone
+edintzone:ReducedMobilityParkingZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:RegulatedParkingZone ;
+    rdfs:comment "Zona de estacionamiento reservada legalmente para vehículos que transportan a Personas con Movilidad Reducida (PMR), regulada por normativas municipales y estatales de accesibilidad."@es ,
+                 "Parking zone legally reserved for vehicles transporting Persons with Reduced Mobility (PRM), regulated by municipal and national accessibility laws."@en ;
+    rdfs:label "Zona de Estacionamiento PMR"@es ,
+               "Reduced Mobility Parking Zone"@en .
+
+
 ###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#FreeTradeZone
 edintzone:FreeTradeZone rdf:type owl:Class ;
     rdfs:subClassOf edintzone:EconomicInterestZone ;
@@ -277,6 +304,33 @@ edintzone:HighTourismInfluxZone rdf:type owl:Class ;
                "High Tourism Influx Zone"@en .
 
 
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#LeisureZone
+edintzone:LeisureZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:RegulatedZone ;
+    rdfs:comment "Área con alta concentración de establecimientos de ocio y hostelería. Frecuentemente sujeta a regulaciones urbanísticas y medioambientales específicas, como las Zonas de Protección Acústica Especial (ZPAE)."@es ,
+                 "Area with a high concentration of leisure and hospitality establishments. Frequently subject to specific urban and environmental regulations, such as Special Acoustic Protection Zones."@en ;
+    rdfs:label "Zona de Ocio"@es ,
+               "Leisure Zone"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#CommercialZone
+edintzone:CommercialZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:EconomicInterestZone ;
+    rdfs:comment "Área o eje urbano caracterizado por una alta densidad de actividad comercial y de servicios, frecuentemente amparada por normativas autonómicas de comercio bajo la figura de Zona Comercial Abierta (ZCA)."@es ,
+                 "Urban area or axis characterized by a high density of commercial and service activity, frequently supported by regional commerce regulations under the figure of Open Commercial Zone."@en ;
+    rdfs:label "Zona Comercial"@es ,
+               "Commercial Zone"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#IndustrialZone
+edintzone:IndustrialZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:EconomicInterestZone ;
+    rdfs:comment "Área delimitada por el planeamiento urbanístico (PGOU) y el Catastro destinada predominantemente a albergar actividades industriales, logísticas y empresariales."@es ,
+                 "Area delimited by urban planning and Cadastre intended predominantly to host industrial, logistics, and business activities."@en ;
+    rdfs:label "Polígono Industrial"@es ,
+               "Industrial Zone"@en .
+
+
 ###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#EconomicInterestZone
 edintzone:EconomicInterestZone rdf:type owl:Class ;
     rdfs:subClassOf edintzone:RegulatedZone ;
@@ -284,6 +338,15 @@ edintzone:EconomicInterestZone rdf:type owl:Class ;
                  "Area delimited by municipal regulations to promote commercial or tourist activities."@en ;
     rdfs:label "Zona de Interés Económico"@es ,
                "Economic Interest Zone"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#GreenSpaceZone
+edintzone:GreenSpaceZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:RegulatedZone ;
+    rdfs:comment "Espacio libre, parque o área natural urbana sujeta a un régimen de protección urbanística que limita su edificabilidad y regula su uso público, vital para estrategias de mitigación climática y calidad del aire."@es ,
+                 "Open space, park, or urban natural area subject to a spatial planning protection regime that limits buildability and regulates public use, vital for climate mitigation and air quality strategies."@en ;
+    rdfs:label "Zona Verde"@es ,
+               "Green Space Zone"@en .
 
 
 ###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#RegulatedZone

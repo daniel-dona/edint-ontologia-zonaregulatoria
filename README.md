@@ -28,6 +28,4 @@ The ontology prefix is: `edintzone` and it is published under the namespace: [ht
 
 # Mantenimiento del proyecto
 
-To manage those incidents or suggested improvements with respect to the vocabulary, we recommend you to follow
-the guides provided in [Issues Management](https://github.com/nombre-repositorio/wiki/issues-management) to
-generate an issue (work in progress)
+To manage those incidents or suggested improvements with respect to the vocabulary, we recommend you to follow the guides provided in [Issues Management](https://github.com/nombre-repositorio/wiki/issues-management) to generate an issue (work in progress)
