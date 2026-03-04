@@ -1,20 +1,20 @@
-# Ontología para la representación de Zonas Regulatorias
+# Ontología para la representación de Zonas Regulatorias (Regulated Zone Ontology)
 
 Esta ontología tiene como propósito definir, categorizar y relacionar las Zonas Regulatorias en el contexto de la movilidad inteligente y la gestión urbana (Smart Cities). Se ha diseñado como una extensión modular de la ontología del Sector Público de España (esadm).
 
-# Propósito y alcance de la ontología
+# Propósito y alcance de la ontología (Purpose and scope of the ontology)
 
 Actualmente, existen vocabularios para divisiones administrativas (esadm) y geometrías (GeoSPARQL), pero existía un vacío semántico para representar entidades funcionales que se superponen a la trama urbana (ZBE, Carga y Descarga, etc...) sin responder a límites administrativos fijos. Esta ontología cubre dicho hueco.
 
-# Prefijo y espacio de nombres de la ontología
+# Prefijo y espacio de nombres (Prefix and namespace)
 
-The ontology prefix is: `edintzone` and it is published under the namespace: [http://vocab.linkeddata.es/datosabiertos/def/common/zone#](http://vocab.linkeddata.es/datosabiertos/def/common/zone#)
+El prefijo de la ontología *Zonas Regulatorias* es: `edintzone` publicado bajo el espacio de nombres: [http://vocab.linkeddata.es/datosabiertos/def/common/zone#](http://vocab.linkeddata.es/datosabiertos/def/common/zone#)
 
-# Modelo conceptual de la ontología
+# Modelo conceptual (Ontology conceptualization)
 
 ![Ontology Conceptualization Diagram](diagrams/diagram.png)
 
-# Estructura del repositorio
+# Estructura del repositorio (Repository structure)
 
 | Folder | Description |
 |--------|--------------|
@@ -26,8 +26,12 @@ The ontology prefix is: `edintzone` and it is published under the namespace: [ht
 | **requirements/** | Contains all documents used to define the ontology’s requirements: data example, competency questions, functional requirements, use cases, etc. |
 | **shapes/** | Contains the SHACL shapes used to define and validate ontology constraints. |
 
-# Mantenimiento del proyecto
+# Mantenimiento y evolución (Maintenance and evolution)
 
-To manage those incidents or suggested improvements with respect to the vocabulary, we recommend you to follow
-the guides provided in [Issues Management](https://github.com/nombre-repositorio/wiki/issues-management) to
-generate an issue (work in progress)
+Para manejar las incidencias o mejoras sugeridas con respecto a la ontología, recomendamos seguir las guía proporcionadas en ([Issues Management](https://github.com/telefonicasc/edint-ontologia-zonaregulatoria/wiki/issues-management)) para generar una indicencia (trabajo en progreso).
+
+# Financiación (Funding)
+
+Esta ontología ha sido desarrollada en el contexto del Espacio de Datos para las Infraestructuras Urbanas Inteligentes ([EDINT](https://edint.es)).
+
+![Logos](EDINT_UE_V-Color.png)
