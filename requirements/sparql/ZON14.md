@@ -1,4 +1,8 @@
-# Obtener base legal u ordenanza que creó esta zona
+# ¿Cuál es la base legal u ordenanza que creó esta zona?
+
+## Obtener base legal u ordenanza que creó esta zona
+
+```sparql
 PREFIX edintzone: <http://vocab.linkeddata.es/datosabiertos/def/common/zone#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -10,8 +14,11 @@ WHERE {
     ?zona edintzone:legalReference ?referenciaLegal .
 }
 ORDER BY ?tipoZona ?zona ?referenciaLegal
+```
 
-# Obtener base legal con nombres de zona
+## Obtener base legal con nombres de zona
+
+```sparql
 PREFIX edintzone: <http://vocab.linkeddata.es/datosabiertos/def/common/zone#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -24,8 +31,11 @@ WHERE {
     OPTIONAL { ?zona rdfs:label ?nombreZona . }
 }
 ORDER BY ?tipoZona ?zona ?referenciaLegal
+```
 
-# Obtener base legal con filtro de nombre en español
+## Obtener base legal con filtro de nombre en español
+
+```sparql
 PREFIX edintzone: <http://vocab.linkeddata.es/datosabiertos/def/common/zone#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -39,8 +49,11 @@ WHERE {
     FILTER (!BOUND(?nombreZona) || lang(?nombreZona) = "" || lang(?nombreZona) = "es")
 }
 ORDER BY ?tipoZona ?zona ?referenciaLegal
+```
 
-# Obtener base legal con fechas de validez
+## Obtener base legal con fechas de validez
+
+```sparql
 PREFIX edintzone: <http://vocab.linkeddata.es/datosabiertos/def/common/zone#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
