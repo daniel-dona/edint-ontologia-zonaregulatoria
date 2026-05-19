@@ -223,6 +223,15 @@ edintzone:LowEmissionZone rdf:type owl:Class ;
                "Low Emission Zone"@en .
 
 
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#LowNoiseEmissionZone
+edintzone:LowNoiseEmissionZone rdf:type owl:Class ;
+    rdfs:subClassOf edintzone:RegulatedZone ;
+    rdfs:comment "Zona definida por la administración donde se aplican restricciones de ruido y límites de emisión acústica para proteger la salud pública y el bienestar ciudadano."@es ,
+                 "Zone defined by the administration where noise restrictions and acoustic emission limits apply to protect public health and citizen well-being."@en ;
+    rdfs:label "Zona de Bajas Emisiones de Ruido"@es ,
+               "Low Noise Emission Zone"@en .
+
+
 ###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#RestrictedAccessZone
 edintzone:RestrictedAccessZone rdf:type owl:Class ;
     rdfs:subClassOf edintzone:RegulatedZone ;

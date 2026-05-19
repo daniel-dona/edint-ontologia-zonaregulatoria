@@ -271,6 +271,14 @@
 <http://vocab.linkeddata.es/datosabiertos/def/common/zone#LowEmissionZone> <http://www.w3.org/2000/01/rdf-schema#label> "Low Emission Zone"@en .
 <http://vocab.linkeddata.es/datosabiertos/def/common/zone#LowEmissionZone> <http://www.w3.org/2000/01/rdf-schema#label> "Zona de Bajas Emisiones"@es .
 # 
+# http://vocab.linkeddata.es/datosabiertos/def/common/zone#LowNoiseEmissionZone
+<http://vocab.linkeddata.es/datosabiertos/def/common/zone#LowNoiseEmissionZone> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://vocab.linkeddata.es/datosabiertos/def/common/zone#LowNoiseEmissionZone> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vocab.linkeddata.es/datosabiertos/def/common/zone#RegulatedZone> .
+<http://vocab.linkeddata.es/datosabiertos/def/common/zone#LowNoiseEmissionZone> <http://www.w3.org/2000/01/rdf-schema#comment> "Zona definida por la administración donde se aplican restricciones de ruido y límites de emisión acústica para proteger la salud pública y el bienestar ciudadano."@es .
+<http://vocab.linkeddata.es/datosabiertos/def/common/zone#LowNoiseEmissionZone> <http://www.w3.org/2000/01/rdf-schema#comment> "Zone defined by the administration where noise restrictions and acoustic emission limits apply to protect public health and citizen well-being."@en .
+<http://vocab.linkeddata.es/datosabiertos/def/common/zone#LowNoiseEmissionZone> <http://www.w3.org/2000/01/rdf-schema#label> "Low Noise Emission Zone"@en .
+<http://vocab.linkeddata.es/datosabiertos/def/common/zone#LowNoiseEmissionZone> <http://www.w3.org/2000/01/rdf-schema#label> "Zona de Bajas Emisiones de Ruido"@es .
+# 
 # http://vocab.linkeddata.es/datosabiertos/def/common/zone#ParkAndRideZone
 <http://vocab.linkeddata.es/datosabiertos/def/common/zone#ParkAndRideZone> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://vocab.linkeddata.es/datosabiertos/def/common/zone#ParkAndRideZone> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vocab.linkeddata.es/datosabiertos/def/common/zone#RegulatedParkingZone> .

@@ -317,6 +317,26 @@
     "@id" : "http://vocab.linkeddata.es/datosabiertos/def/common/zone#RegulatedZone"
   } ]
 }, {
+  "@id" : "http://vocab.linkeddata.es/datosabiertos/def/common/zone#LowNoiseEmissionZone",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "es",
+    "@value" : "Zona definida por la administración donde se aplican restricciones de ruido y límites de emisión acústica para proteger la salud pública y el bienestar ciudadano."
+  }, {
+    "@language" : "en",
+    "@value" : "Zone defined by the administration where noise restrictions and acoustic emission limits apply to protect public health and citizen well-being."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Low Noise Emission Zone"
+  }, {
+    "@language" : "es",
+    "@value" : "Zona de Bajas Emisiones de Ruido"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/common/zone#RegulatedZone"
+  } ]
+}, {
   "@id" : "http://vocab.linkeddata.es/datosabiertos/def/common/zone#ParkAndRideZone",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {

@@ -448,6 +448,19 @@
     
 
 
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/common/zone#LowNoiseEmissionZone -->
+
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/common/zone#LowNoiseEmissionZone">
+        <rdfs:subClassOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/common/zone#RegulatedZone"/>
+        <rdfs:comment xml:lang="es">Zona definida por la administración donde se aplican restricciones de ruido y límites de emisión acústica para proteger la salud pública y el bienestar ciudadano.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Zone defined by the administration where noise restrictions and acoustic emission limits apply to protect public health and citizen well-being.</rdfs:comment>
+        <rdfs:label xml:lang="en">Low Noise Emission Zone</rdfs:label>
+        <rdfs:label xml:lang="es">Zona de Bajas Emisiones de Ruido</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://vocab.linkeddata.es/datosabiertos/def/common/zone#ParkAndRideZone -->
 
 

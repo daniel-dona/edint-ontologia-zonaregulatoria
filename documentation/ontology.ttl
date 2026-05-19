@@ -285,6 +285,15 @@ xsd:date rdf:type rdfs:Datatype .
                             "Zona de Bajas Emisiones"@es .
 
 
+###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#LowNoiseEmissionZone
+:LowNoiseEmissionZone rdf:type owl:Class ;
+                      rdfs:subClassOf :RegulatedZone ;
+                      rdfs:comment "Zona definida por la administración donde se aplican restricciones de ruido y límites de emisión acústica para proteger la salud pública y el bienestar ciudadano."@es ,
+                                   "Zone defined by the administration where noise restrictions and acoustic emission limits apply to protect public health and citizen well-being."@en ;
+                      rdfs:label "Low Noise Emission Zone"@en ,
+                                 "Zona de Bajas Emisiones de Ruido"@es .
+
+
 ###  http://vocab.linkeddata.es/datosabiertos/def/common/zone#ParkAndRideZone
 :ParkAndRideZone rdf:type owl:Class ;
                  rdfs:subClassOf :RegulatedParkingZone ;
