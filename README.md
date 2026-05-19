@@ -19,7 +19,7 @@ El prefijo de la ontología *Zonas Regulatorias* es: `edintzone` publicado bajo 
 | Folder | Description |
 |--------|--------------|
 | **diagrams/** | Stores diagrams and other resources representing the conceptual model of the ontology (e.g., class hierarchies, relationships). |
-| **docs/** | Stores the HTML or human oriented documentation of the ontology and related artefacts. |
+| **documentation/** | Stores the HTML or human oriented documentation of the ontology and related artefacts. |
 | **examples/** | Includes examples that demonstrate how to instantiate or apply the ontology in real data scenarios. |
 | **kos/** | Stores controlled vocabularies or KOS implementation, usually SKOS implementations in rdf. |
 | **ontology/** | Contains the actual ontology implementation files in formats such as `.owl`, `.rdf`, `.ttl`, or `.jsonld`. |
@@ -28,7 +28,7 @@ El prefijo de la ontología *Zonas Regulatorias* es: `edintzone` publicado bajo 
 
 # Mantenimiento y evolución (Maintenance and evolution)
 
-Para manejar las incidencias o mejoras sugeridas con respecto a la ontología, recomendamos seguir las guía proporcionadas en ([Issues Management](https://github.com/telefonicasc/edint-ontologia-zonaregulatoria/wiki/issues-management)) para generar una indicencia (trabajo en progreso).
+Para manejar las incidencias o mejoras sugeridas con respecto a la ontología, recomendamos seguir las guías proporcionadas en ([Issues Management](./ISSUES.md)) para generar una incidencia.
 
 # Financiación (Funding)
 
